@@ -1,0 +1,36 @@
+# -------- Python cache --------
+__pycache__/
+*.pyc
+
+# -------- Data files (VERY IMPORTANT) --------
+*.pt
+*.pth
+*.npy
+*.npz
+*.h5
+*.pkl
+*.zip
+*.tar
+*.tar.gz
+*.jpeg
+*.jpg
+*.png
+
+# -------- Training logs --------
+TrainProcess/
+runs/
+logs/
+tensorboard/
+
+# -------- Editor / OS files --------
+.DS_Store
+Thumbs.db
+
+# -------- Virtual environments --------
+venv/
+env/
+*.env
+
+# -------- Checkpoints --------
+checkpoint/
+checkpoints/
