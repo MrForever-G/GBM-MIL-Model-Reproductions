@@ -2,6 +2,14 @@
 __pycache__/
 *.pyc
 
+# -------- IDE --------
+.idea/
+.vscode/
+
+# -------- Backup folders (FORBIDDEN in repro repo) --------
+*备份*/
+*backup*/
+
 # -------- Data files (VERY IMPORTANT) --------
 *.pt
 *.pth
@@ -9,9 +17,17 @@ __pycache__/
 *.npz
 *.h5
 *.pkl
+
+# -------- Archives & papers --------
+paper/
+paper.*
+*.pdf
+*.7z
 *.zip
 *.tar
 *.tar.gz
+
+# -------- Images --------
 *.jpeg
 *.jpg
 *.png
@@ -21,6 +37,10 @@ TrainProcess/
 runs/
 logs/
 tensorboard/
+
+# -------- Results --------
+*.xlsx
+*.xls
 
 # -------- Editor / OS files --------
 .DS_Store
