@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="15ba326e-c50c-4ac8-8ce5-7a5913cc6a66" name="Forever">
+        <fileTransfer rootFolder="/home/sylin/62045-data" accessType="SFTP" host="10.154.24.45" port="62045" sshConfigId="dec58013-87fc-4968-aaae-b6ba3be4a91e" sshConfig="root@10.154.24.45:62045 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

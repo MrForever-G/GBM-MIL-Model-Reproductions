@@ -10,7 +10,7 @@ def get_config():
     parser.add_argument("--pt_dir", type=str, default="F:\ProjectWork\GBM-MIL-Model-Reproductions\CLAM-GBM-Classification\pt_files")
     parser.add_argument("--train_csv", type=str, default="train_sample_id.csv")
     parser.add_argument("--test_csv", type=str, default="test_sample_id.csv")
-    parser.add_argument("--num_classes", type=int, default=4)
+    parser.add_argument("--num_classes", type=int, default=2)
     parser.add_argument("--feat_dim", type=int, default=768)
     parser.add_argument("--epochs", type=int, default=20)
     parser.add_argument("--lr", type=float, default=2e-4)

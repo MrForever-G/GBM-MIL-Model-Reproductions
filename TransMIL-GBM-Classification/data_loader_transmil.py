@@ -1,3 +1,4 @@
+# data_loader_transmil.py (binary classification version)
 import os
 import torch
 import pandas as pd
@@ -5,23 +6,27 @@ from torch.utils.data import Dataset, DataLoader
 
 
 class GBMTransMILDataset(Dataset):
-    # MIL dataset for TransMIL using CLAM-style feature files
+    # MIL dataset for TransMIL using CLAM-style feature files (binary version)
     def __init__(self, pt_dir, csv_path):
         super().__init__()
         self.pt_dir = pt_dir
 
-        # CSV contains sampleID and GeneExp_Subtype
         df = pd.read_csv(csv_path)
-        self.sample_ids = df["sampleID"].astype(str).tolist()
 
-        # molecular subtype to class index
-        subtype_map = {
-            "Proneural": 0,
-            "Mesenchymal": 1,
-            "Classical": 2,
-            "Neural": 3,
-        }
-        self.labels = df["GeneExp_Subtype"].map(subtype_map).tolist()
+        # original 4-class mapping
+        subtype_map = {"Classical": 0, "Mesenchymal": 1, "Neural": 2, "Proneural": 3}
+        df["label4"] = df["GeneExp_Subtype"].map(subtype_map)
+
+        # filter Mesenchymal(1) and Proneural(3)
+        df = df[df["label4"].isin([1, 3])].reset_index(drop=True)
+
+        # convert to binary labels
+        # Mesenchymal(1) -> 0
+        # Proneural(3)   -> 1
+        df["label"] = df["label4"].apply(lambda x: 0 if x == 1 else 1)
+
+        self.sample_ids = df["sampleID"].tolist()
+        self.labels = df["label"].tolist()
 
     def __len__(self):
         return len(self.sample_ids)
@@ -32,15 +37,14 @@ class GBMTransMILDataset(Dataset):
 
         # load CLAM-style tensor [N,768]
         pt_path = os.path.join(self.pt_dir, f"{sid}.pt")
-        feats = torch.load(pt_path).float()     
+        feats = torch.load(pt_path).float()
 
-        # limit patch count BEFORE coords is created
+        # limit patch count
         MAX_PATCH = 400
         if feats.shape[0] > MAX_PATCH:
             sel = torch.randperm(feats.shape[0])[:MAX_PATCH]
-            feats = feats[sel]               # subsampled feats
+            feats = feats[sel]
 
-        # now create coords AFTER feats has final shape
         coords = torch.zeros(feats.shape[0], 2).float()
 
         return {

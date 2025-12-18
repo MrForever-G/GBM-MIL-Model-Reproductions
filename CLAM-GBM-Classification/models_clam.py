@@ -34,7 +34,7 @@ class CLAM_MB(nn.Module):
     CLAM-MB: Multi-Branch Attention MIL
     Each class has its own attention branch.
     """
-    def __init__(self, in_dim=768, hidden_dim=512, n_classes=4, dropout=False):
+    def __init__(self, in_dim=768, hidden_dim=512, n_classes=2, dropout=False):
         super().__init__()
         self.in_dim = in_dim
         self.hidden_dim = hidden_dim

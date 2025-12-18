@@ -71,10 +71,10 @@ def parse_args():
     p = argparse.ArgumentParser()
 
     p.add_argument("--lr", type=float, default=1e-4)
-    p.add_argument("--num_epochs", type=int, default=50)
+    p.add_argument("--num_epochs", type=int, default=20)
     p.add_argument("--device", type=str, default="cuda")
     p.add_argument("--hidden_dim", type=int, default=512)
-    p.add_argument("--num_classes", type=int, default=4)
+    p.add_argument("--num_classes", type=int, default=2)
     p.add_argument("--dropout", action="store_true")
     p.add_argument("--savedisk", action="store_true")
 

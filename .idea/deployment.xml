@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="Forever" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="Forever">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/GPY/GBM-MIL-Model-Reproductions" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/CLAM-GBM-Classification/pt_files" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>
